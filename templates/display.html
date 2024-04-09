@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+CSV Data - My Webpage
+{% endblock %}
+
+{% block content %}
+<h1>CSV Data</h1>
+<table border="1">
+    <tr>
+        {% for header in headers %}
+            <th>{{ header }}</th>
+        {% endfor %}
+    </tr>
+    {% for row in data %}
+        <tr>
+            {% for cell in row %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

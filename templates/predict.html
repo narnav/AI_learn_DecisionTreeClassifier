@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>Predict</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action="/result" method="post">
+    <p>Age: <input type="text" name="age"></p>
+    <p>Gender: <select name="gender">
+      <option value="1">Female</option>
+      <option value="0">Male</option>
+    </select></p>
+    <input type="submit" value="Submit">
+  </form>
+
+  <p class="important">
+    Welcome to my awesome homepage.
+{% endblock %}
